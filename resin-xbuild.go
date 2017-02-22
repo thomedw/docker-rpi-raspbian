@@ -5,7 +5,6 @@ import (
 	"os"
 	"os/exec"
 	"syscall"
-	"fmt"
 )
 
 func crossBuildStart() {
@@ -31,7 +30,6 @@ func crossBuildEnd() {
 }
 
 func runShell() error {
-        fmt.Printf("%v",append([]string{"-r", "/", "-q", "qemu-arm-static", "/bin/sh" }, os.Args[1:]...));
 	cmd := exec.Command("/usr/bin/proot-x86_64", append([]string{"-r", "/", "-q", "qemu-arm-static", "/bin/sh" }, os.Args[1:]...)...)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout

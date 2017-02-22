@@ -4,4 +4,4 @@ FROM resin/rpi-raspbian:jessie
 
 COPY . /usr/bin
 
-RUN [ "qemu-arm-static", "/bin/sh", "-c", "ln -s resin-xbuild /usr/bin/cross-build-start; ln -s resin-xbuild /usr/bin/cross-build-end; ln /bin/sh /bin/sh.real" ]
+RUN [ "/usr/bin/proot-x86_64", "-r", "/", "-q", "qemu-arm-static", "/bin/sh", "-c", "ln -s resin-xbuild /usr/bin/cross-build-start; ln -s resin-xbuild /usr/bin/cross-build-end; ln /bin/sh /bin/sh.real" ]
