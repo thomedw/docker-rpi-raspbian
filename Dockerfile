@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 
-#ENV QEMU_EXECVE 1
+ENV PROOT_NO_SECCOMP 1
 
 COPY . /usr/bin
 
